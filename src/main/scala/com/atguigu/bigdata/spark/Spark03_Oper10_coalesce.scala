@@ -21,6 +21,8 @@ object Spark03_Oper10_coalesce {
     val coalesceRDD: RDD[Int] = listRDD.coalesce(3)
     println("缩减分区后：" + coalesceRDD.partitions.size)
 
+    //停止：关闭资源
+    sparkContext.stop()
 
   }
 }
