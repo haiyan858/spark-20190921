@@ -16,19 +16,19 @@ object Spark04_Oper5_zip {
     val conf: SparkConf = new SparkConf().setMaster("local[*]").setAppName("WordCount")
     val sc = new SparkContext(conf)
 
-    val rdd1 = sc.parallelize(1 to 3)
+    val rdd1 = sc.parallelize(1 to 3, 3)
     //rdd1.glom.collect
 
-    val rdd2 = sc.parallelize(4 to 6)
+    val rdd2 = sc.parallelize(Array("a", "b", "c"), 3)
 
     val rdd3 = rdd1.zip(rdd2)
 
     rdd3.collect.foreach(println)
     /*
     output:
-    (1,4)
-    (2,5)
-    (3,6)
+    (1,a)
+    (2,b)
+    (3,c)
     */
 
     //停止：关闭资源
