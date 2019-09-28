@@ -16,10 +16,16 @@ object Spark05_Oper8_cogroup {
     val conf: SparkConf = new SparkConf().setMaster("local[*]").setAppName("WordCount")
     val sc = new SparkContext(conf)
 
-    val rdd1: RDD[(Int, String)] = sc.parallelize(Array((1,"a"),(2,"b"),(3,"c")))
-    val rdd2: RDD[(Int, Int)] = sc.parallelize(Array((1,4),(2,5),(3,6)))
+    val rdd1: RDD[(Int, String)] = sc.parallelize(Array((1, "a"), (2, "b"), (3, "c")))
+    val rdd2: RDD[(Int, Int)] = sc.parallelize(Array((1, 4), (2, 5), (3, 6)))
 
-    rdd1.cogroup(rdd2)
+    rdd1.cogroup(rdd2).collect().foreach(println)
+    /*
+    output:
+    (1,(CompactBuffer(a),CompactBuffer(4)))
+    (2,(CompactBuffer(b),CompactBuffer(5)))
+    (3,(CompactBuffer(c),CompactBuffer(6)))
+     */
 
     /*
     scala> rdd1.cogroup(rdd2).collect
