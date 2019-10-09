@@ -1,6 +1,5 @@
-package com.atguigu.bigdata.spark
+package com.atguigu.bigdata.spark.rdd.keyValue
 
-import org.apache.spark.util.Utils
 import org.apache.spark.{Partitioner, SparkConf, SparkContext}
 
 /**
