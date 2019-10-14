@@ -1,5 +1,8 @@
 package com.atguigu.bigdata.spark.rdd.keyValue
 
+import org.apache.spark.rdd.RDD
+import org.apache.spark.{SparkConf, SparkContext}
+
 /**
   * k-v 类型算子
   * join：两个k-v类型的，根据相同的key，做join
