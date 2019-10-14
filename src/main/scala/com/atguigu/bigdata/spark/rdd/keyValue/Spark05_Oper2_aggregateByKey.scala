@@ -6,7 +6,7 @@ import org.apache.spark.{SparkConf, SparkContext}
 /**
   * key-value类型的算子
   *
-  * SaggregateByKey: 分区内，分区间
+  * aggregateByKey: 分区内，分区间
   *
   * @Author cuihaiyan
   * @Create_Time 2019-09-28 10:09
