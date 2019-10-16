@@ -3,7 +3,7 @@ package com.atguigu.bigdata.spark.rdd
 import org.apache.spark.rdd.RDD
 import org.apache.spark.{SparkConf, SparkContext}
 
-import scala.util.parsing.json.JSON
+//import scala.util.parsing.json.JSON
 
 
 /**
@@ -20,9 +20,9 @@ object Spark08_Oper2_JSON {
     val sc = new SparkContext(conf)
 
     val json = sc.textFile("in/user.json")
-    val result = json.map(JSON.parseFull)
+    //val result = json.map(JSON.parseFull)
 
-    result.foreach(println)
+    //result.foreach(println)
 
     //释放资源
     sc.stop()
