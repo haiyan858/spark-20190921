@@ -20,11 +20,22 @@ object Spark09_Oper3_ShareData {
     //创建spark上下文对象
     val sc = new SparkContext(config)
 
-    val dataRDD: RDD[Int] = sc.makeRDD(List(1, 2, 3, 4), 2)
+    val dataRDD: RDD[String] = sc.makeRDD(List("hadoop", "hive", "hbase", "scala","spark"), 2)
 
     // 创建累加器对象
-    val accumulator: LongAccumulator = sc.longAccumulator
+    val wordAccumulator = new WordAccumulator
+    // 注册累加器
+    sc.register(wordAccumulator)
 
+    dataRDD.foreach{
+      case word => {
+        wordAccumulator.add(word)
+      }
+    }
+
+    //获取累加器的值
+    println(wordAccumulator.value)
+    //output：[hadoop, hive, hbase]
 
     sc.stop()
   }
@@ -62,7 +73,8 @@ class WordAccumulator extends AccumulatorV2[String,util.ArrayList[String]] {
     list.addAll(other.value)
   }
 
-  override def value: util.ArrayList[String] = ???
+  //获取累加器的结果
+  override def value: util.ArrayList[String] = list
 }
 
 
