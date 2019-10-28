@@ -20,6 +20,22 @@
             <artifactId>mysql-connector-java</artifactId>
             <version>5.1.47</version>
         </dependency>
+
+        <!--
+        报错：引入hbase-server 依赖，但是没有使用，再次运行其他Scala程序，报错如下：
+        Exception in thread "main" java.lang.NoSuchMethodError:
+        org.apache.hadoop.conf.Configuration.getPassword(Ljava/lang/String;)[C-->
+        <!--<dependency>
+            <groupId>org.apache.hbase</groupId>
+            <artifactId>hbase-server</artifactId>
+            <version>1.3.1</version>
+        </dependency>-->
+
+        <!--<dependency>
+            <groupId>org.apache.hbase</groupId>
+            <artifactId>hbase-client</artifactId>
+            <version>1.3.1</version>
+        </dependency>-->
     </dependencies>
 
     <build>
