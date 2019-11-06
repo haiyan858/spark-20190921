@@ -9,7 +9,7 @@ import org.apache.spark.sql.{DataFrame, SparkSession}
   * @Author cuihaiyan
   * @Create_Time 2019-11-06 23:49
   */
-object SparkSQL02_Demo {
+object SparkSQL02_SQL {
 
   def main(args: Array[String]): Unit = {
 
@@ -34,6 +34,16 @@ object SparkSQL02_Demo {
     df.createOrReplaceTempView("user")
 
     spark.sql("select * from user").show()
+    /*
+    +----+-------+
+    | age|   name|
+    +----+-------+
+    |null|Michael|
+    |  30|   Andy|
+    |  19| Justin|
+    +----+-------+
+    */
+
 
     //释放资源
     spark.stop()
