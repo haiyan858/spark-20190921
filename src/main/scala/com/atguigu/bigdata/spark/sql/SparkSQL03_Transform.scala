@@ -17,7 +17,7 @@ object SparkSQL03_Transform {
 
     val spark: SparkSession = SparkSession.builder().config(sparkConf).getOrCreate()
 
-    //RDD 与 DF/DS 转换，需要引入隐式转换
+    //RDD 与 DF、DS 转换，需要引入隐式转换
     //spark => SparkSession 的对象名字
     import spark.implicits._
 
@@ -38,6 +38,9 @@ object SparkSQL03_Transform {
 
     rdd1.foreach(row => {
       println(row.getInt(0),row.getString(1),row.getInt(2))
+//      (2,list,34)
+//      (3,wangWu,35)
+//      (1,zhangSann,25)
     })
 
 
